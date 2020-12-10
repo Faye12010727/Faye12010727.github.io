@@ -119,6 +119,14 @@ function watchFiles() {
   gulp.watch("./**/*.html", browserSyncReload);
 }
 
+
+
+
+
+
+
+
+
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
 const build = gulp.series(vendor, gulp.parallel(css, js));

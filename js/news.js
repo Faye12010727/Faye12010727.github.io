@@ -2,9 +2,9 @@ $(function() {
 	$.getJSON('http://127.0.0.1:5000/news', function(result) {
 		$.each(result, function(i, item) {
 			var news_datetime = Date.parse(item['publishedAt'])
-			var news_item = `<a href=${item['url']}> ${item['title']} </a>` +
-				`<p>${item['source']} | ${timeSince(news_datetime)} ago</p>` +
-				`<img src="${item['urlToImage']}" alt="news image" width="100" height="100"><br><br>`
+			var news_item = `<a href=${item['url']}> <h2>${item['title']} </h2></a>` +
+				`<p> ${item['source']} | ${timeSince(news_datetime)} ago  </p>` +
+				`<img src="${item['urlToImage']}" alt="news image" width="500" height="300"><br><hr><br>`
 			$('#news-container').append(news_item)
 		})
 	})
