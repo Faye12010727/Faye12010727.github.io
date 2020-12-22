@@ -1,5 +1,5 @@
 $(function() {
-	$.getJSON('https://kx06n0iaue.execute-api.us-east-2.amazonaws.com/default/get_news', function(result) {
+	$.getJSON('http://flask-env.eba-g2wprrbz.us-west-2.elasticbeanstalk.com/news', function(result) {
 		$.each(result, function(i, item) {
 			var news_datetime = Date.parse(item['publishedAt'])
 			var news_item = `<a href=${item['url']}> <h2>${item['title']} </h2></a>` +
