@@ -4,12 +4,11 @@ $(function(){
   $("#submit_btn").click(function() {
   	var state = $("#state").val()
   	var day = $("#day").val()
-  	if ($("#category").val() === 'positive cases daily increase') {
+  	if ($("#category option:selected").text() === 'positive cases daily increase') {
   		var category = 'positiveIncrease'
   	} else {
   		var category = 'deathIncrease'
   	}
-  	
   	$.get(`http://flask-env.eba-g2wprrbz.us-west-2.elasticbeanstalk.com/predict?state=${state}&day=${day}&category=${category}`, function(data, status) {
       drawChart($.parseJSON(data).map(x => [new Date(x[0] * 1000), x[1]]))
   	})
